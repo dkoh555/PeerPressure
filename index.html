@@ -77,62 +77,46 @@
             margin-right: 8px;
             background-color: var(--accent-pink);
             border-radius: 50%;
-            nav {
-    background-color: rgb(255, 255, 255);
-    padding: 10px 20px;
-}
-
-nav ul {
-    display: flex;
-    list-style: none;
-    gap: 40px;
-    padding: 0;
-    margin: 0;
-}
-
-/* Nav links styling */
-nav a {
-    text-decoration: none;
-    color: var(--medium-green);
-    font-weight: 500;
-    font-size: 1.05rem;
-    padding: 10px 0;
-    position: relative;
-    transition: color 0.3s ease;
-}
-
-nav a:hover {
-    color: var(--dark-green);
-}
-
-nav a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 3px;
-    bottom: 0;
-    left: 0;
-    background-color: var(--accent-pink);
-    transition: width 0.3s ease;
-}
-
-nav a:hover::after {
-    width: 100%;
-}
-
-/* 🔽 Mobile responsive styles */
-@media screen and (max-width: 768px) {
-    nav ul {
-        flex-direction: column;
-        gap: 20px;
-        align-items: flex-start;
-    }
-
-    nav {
-        padding: 15px;
-    }
-}
-
+        }
+        
+        nav {
+            background-color: rgb(255, 255, 255);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--medium-green);
+            font-weight: 500;
+            font-size: 1.05rem;
+            padding: 10px 0;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        nav a:hover {
+            color: var(--dark-green);
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--accent-pink);
+            transition: width 0.3s ease;
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
         
         .button {
             display: inline-block;
