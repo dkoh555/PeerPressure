@@ -615,6 +615,53 @@ nav ul {
     gap: 30px;
     align-items: center;
 }
+.testimonial-carousel {
+  position: relative;
+  overflow: hidden;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.testimonial-slide {
+  display: none;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.testimonial-slide.active {
+  display: block;
+}
+
+.testimonial-text {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.testimonial-author {
+  text-align: center;
+  font-style: italic;
+  margin-top: 10px;
+  color: #666;
+}
+
+.testimonial-controls {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.testimonial-controls button {
+  background-color: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #333;
+  padding: 5px 10px;
+}
+
+.testimonial-controls button:hover {
+  color: #007bff;
+}
+
     </style>
 </head>
 <body>
@@ -644,7 +691,7 @@ nav ul {
             <a href="#download" class="button">Get Started</a>
             
             <div class="app-display">
-                <img src="pngtree-iphone-mockup-with-blank-screen-on-transparent-background-png-image_10193734.png" alt="Peer Pressure App Screenshot" class="app-screenshot">
+                <img src="mockup.gif" alt="Peer Pressure App Screenshot" class="app-screenshot">
                 <div class="character-space top-left"></div>
                 <div class="character-space bottom-right"></div>
             </div>
@@ -767,21 +814,44 @@ nav ul {
 
     <section class="testimonial-section" id="testimonials">
         <div class="container">
-            <h2 class="section-title">What Users Say</h2>
-            <p class="section-subtitle">Join peers who are using positive peer pressure to build better habits.</p>
-            
-            <div class="testimonial-card">
-                <p class="testimonial-text">"sample from interviews"</p>
-                <p class="testimonial-author">- Student user</p>
+          <h2 class="section-title">What Users Say</h2>
+          <p class="section-subtitle">Join peers who are using positive peer pressure to build better habits.</p>
+      
+          <div class="testimonial-carousel">
+            <div class="testimonial-slide active">
+              <p class="testimonial-text">"I love the lock screen function, like another person can lock your screen. It's not the phone itself locking. It involves someone else."</p>
+              <p class="testimonial-author">- College Student</p>
             </div>
+      
+            <div class="testimonial-slide">
+              <p class="testimonial-text">"I think what motivates me to be a coach is that we improve together."</p>
+              <p class="testimonial-author">- Student</p>
+            </div>
+      
+            <div class="testimonial-slide">
+              <p class="testimonial-text">" I love that we can have a group. And then we can see how people are doing and then roast them."</p>
+              <p class="testimonial-author">- Student</p>
+            </div>
+      
+            <div class="testimonial-slide">
+              <p class="testimonial-text">"I just like the idea of like mutual reminders and collaboration."</p>
+              <p class="testimonial-author">- Student</p>
+            </div>
+          </div>
+      
+          <div class="testimonial-controls">
+            <button class="prev">&#10094;</button>
+            <button class="next">&#10095;</button>
+          </div>
         </div>
-    </section>
+      </section>
+      
 
     <section class="download-section" id="download">
         <div class="blob blob-1"></div>
         <div class="container">
             <h2 class="section-title">Download Peer Pressure</h2>
-            <p class="section-subtitle">Available on iOS and Android devices.</p>
+            <p class="section-subtitle">Coming soon to the app store</p>
             
             <div class="download-buttons">
                 <a href="#" class="download-btn">
@@ -795,15 +865,24 @@ nav ul {
     </section>
 
     <footer>
+        
         <div class="container footer-content">
             <div>
                 <div class="footer-logo">
                     <div class="footer-logo-icon"></div>
                     Peer Pressure
                 </div>
-                <p class="footer-text">Use positive peer pressure to boost productivity and develop better digital habits with friends who support your goals.</p>
+                <p class="footer-text">
+                    Use positive peer pressure to boost productivity and develop better digital habits with friends who support your goals.
+                </p>
+                <p class="footer-address">
+                    The Garage at Northwestern University<br>
+                    2311 N Campus Dr #2300<br>
+                    Evanston, IL 60208<br>
+                    (847) 467-7155
+                </p>
             </div>
-            
+        
             <div class="footer-links">
                 <div class="footer-column">
                     <h4>App</h4>
@@ -814,9 +893,7 @@ nav ul {
                         <li><a href="#">Release Notes</a></li>
                     </ul>
                 </div>
-                
-                
-                
+        
                 <div class="footer-column">
                     <h4>Connect</h4>
                     <ul>
@@ -829,9 +906,47 @@ nav ul {
             </div>
         </div>
         
+        
         <div class="copyright">
-            <p>&copy; 2025 Peer Pressure. All rights reserved.</p>
+            <p>By signing up, you agree to our 
+                <a href="/privacy-policy" style="color: var(--light-green); text-decoration: underline;">Privacy Policy</a> and 
+                <a href="/terms-of-service" style="color: var(--light-green); text-decoration: underline;">Terms of Service</a>. 
+                Messaging and data rates may apply. You may receive SMS updates related to this service. Consent is not a condition of purchase. You can opt out anytime.
+              </p></p>
+            <p style="font-size: 0.8rem; color: var(--medium-green); margin-top: 1rem; line-height: 1.6;">
+               &copy; 2025 Peer Pressure. All rights reserved.</p>
+              
         </div>
     </footer>
 </body>
+<script>
+    let slideIndex = 0;
+    const slides = document.querySelectorAll('.testimonial-slide');
+    const nextBtn = document.querySelector('.next');
+    const prevBtn = document.querySelector('.prev');
+  
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.remove('active');
+        if (i === index) slide.classList.add('active');
+      });
+    }
+  
+    nextBtn.addEventListener('click', () => {
+      slideIndex = (slideIndex + 1) % slides.length;
+      showSlide(slideIndex);
+    });
+  
+    prevBtn.addEventListener('click', () => {
+      slideIndex = (slideIndex - 1 + slides.length) % slides.length;
+      showSlide(slideIndex);
+    });
+  
+    // Optional: auto-play every 6 seconds
+    setInterval(() => {
+      slideIndex = (slideIndex + 1) % slides.length;
+      showSlide(slideIndex);
+    }, 6000);
+  </script>
+  
 </html>
